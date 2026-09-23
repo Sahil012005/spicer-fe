@@ -1,0 +1,870 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: #050b1a;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* =========================
+   DARK THEME
+========================= */
+
+.app.dark {
+  --bg: #050b1a;
+  --bg-secondary: #09142b;
+  --card-bg: rgba(13, 31, 61, 0.7);
+  --card-border: rgba(69, 164, 255, 0.15);
+
+  --text: #f5f9ff;
+  --text-secondary: #9eb4d0;
+  --muted: #6f88a8;
+
+  --primary: #2196f3;
+  --primary-light: #56b7ff;
+  --secondary: #5c6cff;
+  --cyan: #20d8ff;
+
+  --glow: rgba(33, 150, 243, 0.35);
+  --nav-bg: rgba(5, 11, 26, 0.75);
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* =========================
+   LIGHT THEME
+========================= */
+
+.app.light {
+  --bg: #f4f9ff;
+  --bg-secondary: #e9f3ff;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(33, 150, 243, 0.15);
+
+  --text: #071426;
+  --text-secondary: #536983;
+  --muted: #71849b;
+
+  --primary: #087fe7;
+  --primary-light: #2196f3;
+  --secondary: #5665f2;
+  --cyan: #00b8e6;
+
+  --glow: rgba(33, 150, 243, 0.22);
+  --nav-bg: rgba(244, 249, 255, 0.8);
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 8%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+
+  background: var(--nav-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid var(--card-border);
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.logo span {
+  color: var(--primary);
+  text-shadow: 0 0 15px var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-light);
+}
+
+.theme-btn {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+
+  background: var(--card-bg);
+  cursor: pointer;
+
+  font-size: 1.1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+  transform: rotate(15deg) scale(1.08);
+  box-shadow: 0 0 25px var(--glow);
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+  min-height: 100vh;
+  padding: 140px 8% 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 4rem;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 650px;
+  z-index: 2;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+
+  color: var(--primary-light);
+
+  padding: 10px 16px;
+  margin-bottom: 1.8rem;
+
+  border: 1px solid var(--card-border);
+  border-radius: 100px;
+
+  background: var(--card-bg);
+}
+
+.hero h1 {
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  line-height: 1;
+  letter-spacing: -4px;
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  color: var(--primary);
+  text-shadow:
+    0 0 20px rgba(33, 150, 243, 0.4),
+    0 0 50px rgba(33, 150, 243, 0.2);
+}
+
+.hero h2 {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.2;
+  font-weight: 500;
+
+  color: var(--text-secondary);
+  margin-bottom: 1.8rem;
+}
+
+.hero h2 span {
+  color: var(--cyan);
+}
+
+.description {
+  max-width: 540px;
+
+  font-size: 1.1rem;
+  line-height: 1.8;
+
+  color: var(--text-secondary);
+
+  margin-bottom: 2.2rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 14px 24px;
+  border-radius: 10px;
+
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+
+  box-shadow:
+    0 10px 30px rgba(33, 150, 243, 0.25);
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 15px 40px rgba(33, 150, 243, 0.45);
+}
+
+.secondary-btn {
+  color: var(--text);
+
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+}
+
+.secondary-btn:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--primary);
+
+  box-shadow: 0 10px 30px var(--glow);
+}
+
+/* =========================
+   BACKGROUND GLOWS
+========================= */
+
+.glow {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+  filter: blur(100px);
+
+  pointer-events: none;
+
+  opacity: 0.4;
+}
+
+.glow-one {
+  top: 5%;
+  left: -250px;
+
+  background: var(--primary);
+}
+
+.glow-two {
+  bottom: -200px;
+  right: 5%;
+
+  background: var(--secondary);
+}
+
+/* =========================
+   ORBIT DESIGN
+========================= */
+
+.orbit-container {
+  width: 430px;
+  height: 430px;
+
+  flex-shrink: 0;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbit {
+  position: absolute;
+
+  border: 1px solid rgba(66, 162, 255, 0.25);
+  border-radius: 50%;
+}
+
+.orbit::after {
+  content: '';
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: var(--cyan);
+
+  box-shadow:
+    0 0 10px var(--cyan),
+    0 0 25px var(--cyan);
+
+  position: absolute;
+  top: 50%;
+  left: -5px;
+}
+
+.orbit-1 {
+  width: 200px;
+  height: 200px;
+
+  animation: spin 10s linear infinite;
+}
+
+.orbit-2 {
+  width: 310px;
+  height: 310px;
+
+  animation: spinReverse 16s linear infinite;
+}
+
+.orbit-3 {
+  width: 420px;
+  height: 420px;
+
+  animation: spin 22s linear infinite;
+}
+
+.center-card {
+  width: 190px;
+  height: 190px;
+
+  border-radius: 28px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--card-border);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 0 50px rgba(33, 150, 243, 0.15),
+    inset 0 0 30px rgba(33, 150, 243, 0.05);
+
+  z-index: 2;
+
+  animation: float 4s ease-in-out infinite;
+}
+
+.avatar {
+  width: 65px;
+  height: 65px;
+
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+
+  box-shadow: 0 0 30px var(--glow);
+}
+
+.center-card span {
+  font-family: 'DM Mono', monospace;
+
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+
+  color: var(--muted);
+}
+
+.center-card strong {
+  margin-top: 4px;
+
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.section,
+.contact {
+  padding: 110px 8%;
+}
+
+.section {
+  background: var(--bg-secondary);
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+
+  color: var(--primary-light);
+
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+
+  margin-bottom: 1rem;
+}
+
+.section h2,
+.contact h2 {
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+
+  letter-spacing: -2px;
+  line-height: 1.1;
+
+  margin-bottom: 3.5rem;
+}
+
+/* =========================
+   ABOUT CARDS
+========================= */
+
+.cards {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 2rem;
+
+  border-radius: 20px;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--card-border);
+
+  transition: all 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+
+  border-color: rgba(33, 150, 243, 0.5);
+
+  box-shadow:
+    0 20px 50px rgba(33, 150, 243, 0.12);
+}
+
+.card-icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.6rem;
+
+  border-radius: 15px;
+
+  background: rgba(33, 150, 243, 0.1);
+
+  margin-bottom: 1.5rem;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects {
+  background: var(--bg);
+}
+
+.project-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1.5rem;
+}
+
+.project {
+  min-height: 300px;
+
+  padding: 2rem;
+
+  border-radius: 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.4s ease;
+}
+
+.project::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(3, 10, 25, 0.9),
+    transparent
+  );
+}
+
+.project:hover {
+  transform: translateY(-10px) scale(1.01);
+}
+
+.project span,
+.project h3,
+.project p {
+  position: relative;
+  z-index: 1;
+}
+
+.project span {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+
+  font-family: 'DM Mono', monospace;
+
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.project h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+
+  color: white;
+}
+
+.project p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.project-one {
+  background:
+    linear-gradient(
+      135deg,
+      #0759a8,
+      #0c1d42
+    );
+}
+
+.project-two {
+  background:
+    linear-gradient(
+      135deg,
+      #1c6dd0,
+      #442c85
+    );
+}
+
+.project-three {
+  background:
+    linear-gradient(
+      135deg,
+      #00a8cc,
+      #083b66
+    );
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+  text-align: center;
+
+  position: relative;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(33, 150, 243, 0.12),
+      transparent 55%
+    ),
+    var(--bg);
+}
+
+.contact .section-label {
+  margin-bottom: 1rem;
+}
+
+.contact h2 {
+  margin-bottom: 1rem;
+}
+
+.contact > p:not(.section-label) {
+  color: var(--text-secondary);
+
+  font-size: 1.1rem;
+
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 2rem 8%;
+
+  text-align: center;
+
+  border-top: 1px solid var(--card-border);
+
+  background: var(--bg);
+}
+
+footer p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .description {
+    max-width: 650px;
+  }
+
+  .cards,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project {
+    min-height: 250px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+  .navbar {
+    padding: 0 5%;
+    height: 70px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    padding: 120px 6% 70px;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .eyebrow {
+    font-size: 0.6rem;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .orbit-container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .orbit-1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .orbit-2 {
+    width: 220px;
+    height: 220px;
+  }
+
+  .orbit-3 {
+    width: 290px;
+    height: 290px;
+  }
+
+  .center-card {
+    width: 150px;
+    height: 150px;
+  }
+
+  .avatar {
+    width: 55px;
+    height: 55px;
+  }
+
+  .section,
+  .contact {
+    padding: 80px 6%;
+  }
+
+  .section h2,
+  .contact h2 {
+    margin-bottom: 2.5rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
